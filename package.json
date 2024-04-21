@@ -1,6 +1,6 @@
 {
   "name": "scroll-infinitely",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "author": {
     "name": "Natchi",
@@ -50,12 +50,18 @@
       "optional": true
     }
   },
-  "homepage": "https://scroll.natchi.fr",
+  "homepage": "https://github.com/Natchii59/scroll-infinitely",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Natchii59/scroll-infinitely.git"
   },
   "bugs": {
     "url": "https://github.com/Natchii59/scroll-infinitely/issues"
-  }
+  },
+  "keywords": [
+    "react",
+    "infinite",
+    "scroll",
+    "react-component"
+  ]
 }
