@@ -1,0 +1,61 @@
+{
+  "name": "scroll-infinitely",
+  "version": "0.0.1",
+  "license": "MIT",
+  "author": {
+    "name": "Natchi",
+    "email": "contact@natchi.fr",
+    "url": "https://natchi.fr"
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    }
+  },
+  "scripts": {
+    "build": "tsup index.tsx --format cjs,esm --dts",
+    "release": "pnpm run build && changeset publish",
+    "lint": "tsc"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.27.1",
+    "tsup": "^8.0.2",
+    "typescript": "^5.4.5"
+  },
+  "peerDependencies": {
+    "@types/react": "*",
+    "@types/react-dom": "*",
+    "react": "^18.0",
+    "react-dom": "^18.0"
+  },
+  "peerDependenciesMeta": {
+    "@types/react": {
+      "optional": true
+    },
+    "@types/react-dom": {
+      "optional": true
+    }
+  },
+  "homepage": "https://scroll.natchi.fr",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Natchii59/scroll-infinitely.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Natchii59/scroll-infinitely/issues"
+  }
+}
