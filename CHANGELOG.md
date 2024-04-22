@@ -1,5 +1,11 @@
 # scroll-infinitely
 
+## 0.0.3
+
+### Patch Changes
+
+- dba3638: Fix Github actions and Changesets versions
+
 ## 0.0.2
 
 ### Patch Changes
