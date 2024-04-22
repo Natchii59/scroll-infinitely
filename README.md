@@ -10,7 +10,7 @@ To install the package, you can use the following command:
 npm install scroll-infinitely
 ```
 
-or 
+or
 
 ```sh
 pnpm add scroll-infinitely
@@ -25,10 +25,15 @@ import { useState } from 'react'
 import { ScrollInfinitely } from '../../dist'
 
 function App() {
-  const [state, setState] = useState<number[]>(Array.from({ length: 100 }, (_, i) => i + 1))
+  const [state, setState] = useState<number[]>(
+    Array.from({ length: 100 }, (_, i) => i + 1)
+  )
 
   const handleAction = () => {
-    setState(prev => [...prev, ...Array.from({ length: 100 }, (_, i) => i + prev.length + 1)])
+    setState(prev => [
+      ...prev,
+      ...Array.from({ length: 100 }, (_, i) => i + prev.length + 1)
+    ])
   }
 
   return (
@@ -37,7 +42,9 @@ function App() {
       hasMore={state.length < 1000}
       loader={<div>LOADING</div>}
     >
-      {state.map((item, index) => <div key={index}>{item}</div>)}
+      {state.map((item, index) => (
+        <div key={index}>{item}</div>
+      ))}
     </ScrollInfinitely>
   )
 }
