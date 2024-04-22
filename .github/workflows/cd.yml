@@ -37,7 +37,7 @@ jobs:
         with:
           publish: pnpm run release
           title: 'v${{env.NEW_VERSION}}'
-          commit: 'v${{env.NEW_VERSION}}'
+          commit: 'chore: v${{env.NEW_VERSION}}'
           createGithubReleases: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
