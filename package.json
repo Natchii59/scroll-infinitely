@@ -28,9 +28,9 @@
   },
   "scripts": {
     "prepare": "husky",
-    "build": "tsup src --format cjs,esm --dts",
+    "build": "tsup",
     "clean": "rm -rf dist",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "tsc",
     "lint": "eslint src --ext .ts,.tsx --config .eslintrc.json --cache",
     "format": "prettier --write .",
     "format:check": "prettier --check src --cache",

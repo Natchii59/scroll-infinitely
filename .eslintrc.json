@@ -3,7 +3,7 @@
   "parser": "@typescript-eslint/parser",
   "ignorePatterns": ["dist"],
   "env": {
-    "es2022": true,
+    "es6": true,
     "browser": true
   },
   "extends": [
