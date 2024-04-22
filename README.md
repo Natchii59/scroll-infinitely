@@ -1,24 +1,63 @@
-# Scroll Infinitely
+<h1 align="center">Scroll Infinitely</h1>
+<br />
 
-This is the repository for the `scroll-infinitely` package. This package provides functionality for infinite scrolling.
+<p align="center">
+  <img alt="Bundle Size" src="https://badgen.net/bundlephobia/minzip/scroll-infinitely"/>
+  <a href="https://www.npmjs.com/package/scroll-infinitely">
+    <img alt="Release" src="https://badgen.net/npm/v/scroll-infinitely"/>
+  </a>
+  <a href="https://github.com/Natchii59/scroll-infinitely/blob/master/LICENSE.md">
+    <img alt="MIT License" src="https://badgen.net/github/license/Natchii59/scroll-infinitely"/>
+  </a>
+  <img alt="NPM Downloads" src="https://badgen.net/npm/dm/scroll-infinitely"/>
+  <img alt="Github Stars" src="https://badgen.net/github/stars/Natchii59/scroll-infinitely?color=yellow" />
+</p>
+
+<br />
+
+Scroll Infinitely is a lightweight and easy-to-use library that allows you to create infinite scrolling pages with ease. It is built with TypeScript and has no dependencies.
+
+## Table of contents
+
+- [Documentation](#documentation)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Documentation
+
+You can find the full documentation [here](https://github.com/Natchii59/scroll-infinitely/blob/master/README.md).
+
+A website with the documentation is coming soon...
+
+## Features
+
+- **Lightweight**: The library is very lightweight and has no dependencies.
+- **Easy to use**: The library is very easy to use and has a simple API.
+- **Customizable**: You can customize the library to fit your needs.
+- **Built with TypeScript**: The library is built with TypeScript and has type definitions.
+- **Inverse scrolling**: You can also use inverse scrolling with the library.
 
 ## Installation
 
-To install the package, you can use the following command:
+To use Scroll Infinitely, all you need to do is install the `scroll-infinitely` package.
 
 ```sh
+# Using npm
 npm install scroll-infinitely
-```
 
-or
+# Using yarn
+yarn add scroll-infinitely
 
-```sh
+# Using pnpm
 pnpm add scroll-infinitely
 ```
 
 ## Usage
 
-To use the package, you can follow the example below:
+Here is a simple example of how you can use Scroll Infinitely:
 
 ```tsx
 import { useState } from 'react'
@@ -48,28 +87,13 @@ function App() {
     </ScrollInfinitely>
   )
 }
-
-export default App
 ```
 
 ## Contributing
 
-If you want to contribute to this project, you can follow the steps below:
-
-1. Fork the repository.
-2. Clone the repository.
-3. Create a new branch.
-4. Make your changes.
-5. Commit your changes.
-6. Push your changes.
-7. Create a pull request.
+Feel like contributing? That's awesome! We have a
+[contributing guide](./CONTRIBUTING.md) to help guide you.
 
 ## License
 
-This project is licensed under the MIT license.
-
-## Contact
-
-If you have any questions, feel free to contact the author at [contact@natchi.fr](mailto:contact@natchi.fr) or report an issue [here](https://github.com/Natchii59/scroll-infinitely/issues/new).
-
-For more information, you can visit the documentation [here](https://github.com/Natchii59/scroll-infinitely).
+Scroll Infinitely is licensed under the [MIT License](./LICENSE.md).
