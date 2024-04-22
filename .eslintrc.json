@@ -1,15 +1,21 @@
 {
   "root": true,
   "parser": "@typescript-eslint/parser",
+  "ignorePatterns": ["dist"],
   "env": {
     "es2022": true,
     "browser": true
   },
-  "extends": ["plugin:react/recommended", "prettier"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": ["@typescript-eslint/eslint-plugin"],
   "settings": {
     "react": {
       "version": "detect"
     }
-  },
-  "plugins": ["@typescript-eslint/eslint-plugin"]
+  }
 }

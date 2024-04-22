@@ -1,3 +1,11 @@
-/node_modules
-/dist
-/example*
+node_modules/
+dist/
+
+# Test app
+example*/
+
+# Eslint cache
+.eslintcache
+
+# Mac files
+.DS_Store

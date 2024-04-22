@@ -28,11 +28,12 @@
   },
   "scripts": {
     "prepare": "husky",
-    "build": "tsup index.tsx --format cjs,esm --dts",
+    "build": "tsup src --format cjs,esm --dts",
+    "clean": "rm -rf dist",
     "typecheck": "tsc --noEmit",
-    "lint": "eslint index.tsx --config .eslintrc.json --cache",
+    "lint": "eslint src --ext .ts,.tsx --config .eslintrc.json --cache",
     "format": "prettier --write .",
-    "format:check": "prettier --check index.tsx --cache",
+    "format:check": "prettier --check src --cache",
     "version": "changeset version",
     "release": "pnpm run build && changeset publish"
   },
