@@ -1,5 +1,17 @@
 # scroll-infinitely
 
+## 0.2.0
+
+### Minor Changes
+
+- [`3aab5ef`](https://github.com/Natchii59/scroll-infinitely/commit/3aab5ef5eed6cc801c97dab3672da656d24e2635) Thanks [@Natchii59](https://github.com/Natchii59)! - feat: Add useScrollInfinitely hook
+
+  `hasMore` prop is now required, so we can just use that to determine if we should fetch more data. This hook is useful for when you want to fetch more data when the user scrolls to the bottom of the page.
+
+- [`db7ad52`](https://github.com/Natchii59/scroll-infinitely/commit/db7ad52e6e27c3c354d7f46536b08b893b8c8946) Thanks [@Natchii59](https://github.com/Natchii59)! - feat: Add polymorphic props
+
+- [`6398e9c`](https://github.com/Natchii59/scroll-infinitely/commit/6398e9c6e46f3db8e3dce8103042df1b1b453679) Thanks [@Natchii59](https://github.com/Natchii59)! - feat: Add end component prop
+
 ## 0.1.0
 
 ### Minor Changes
