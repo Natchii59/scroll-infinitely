@@ -44,6 +44,11 @@ type ScrollInfinitelyProps<
    * The threshold margin in CSS units. When the user scrolls within this margin from the bottom of the div, the `action` will be triggered.
    */
   thresholdMargin?: string
+
+  /**
+   * The component to render at the end of the scrollable content.
+   */
+  end?: React.ReactNode
 }
 
 /**
@@ -57,6 +62,7 @@ type ScrollInfinitelyProps<
  * @param {React.ReactNode} [props.loader] - The component to render while the `action` is being performed.
  * @param {number} [props.threshold] - The threshold in the range `[0, 1]`. When the user scrolls to this percentage of the div, the `action` will be triggered. Defaults to `1`.
  * @param {string} [props.thresholdMargin] - The margin in CSS units. When the user scrolls within this margin from the bottom of the div, the `action` will be triggered.
+ * @param {React.ReactNode} [props.end] - The component to render at the end of the scrollable content.
  * @returns {React.JSX.Element} The `ScrollInfinitely` component.
  *
  * @example
@@ -77,6 +83,7 @@ const ScrollInfinitely = <E extends React.ElementType = typeof defaultElement>({
   loader,
   threshold,
   thresholdMargin,
+  end,
   ...props
 }: ScrollInfinitelyProps<E>): React.JSX.Element => {
   const observerRef = React.useRef<HTMLDivElement>(null)
@@ -119,7 +126,7 @@ const ScrollInfinitely = <E extends React.ElementType = typeof defaultElement>({
 
       {loading ? loader : null}
 
-      <div ref={observerRef} />
+      {hasMore === false ? end : <div ref={observerRef} />}
     </Component>
   )
 }
