@@ -1,6 +1,25 @@
 import * as React from 'react'
 
-type ScrollInfinitelyProps = React.HTMLAttributes<HTMLDivElement> & {
+type PolymorphicAsProp<E extends React.ElementType> = {
+  /**
+   * The element type to render as. Defaults to 'div'.
+   */
+  as?: E
+}
+
+type PolymorphicProps<E extends React.ElementType> =
+  React.ComponentPropsWithoutRef<E> & PolymorphicAsProp<E>
+
+const defaultElement = 'div'
+
+/**
+ * Props for the ScrollInfinitely component.
+ *
+ * @template E - The type of the root element. Defaults to `typeof defaultElement`.
+ */
+type ScrollInfinitelyProps<
+  E extends React.ElementType = typeof defaultElement
+> = PolymorphicProps<E> & {
   /**
    * The action to perform when the user scrolls to the bottom of the div.
    */
@@ -17,9 +36,14 @@ type ScrollInfinitelyProps = React.HTMLAttributes<HTMLDivElement> & {
   loader?: React.ReactNode
 
   /**
-   * The margin from the bottom of the div at which to trigger the `action`. Defaults to '0px'.
+   * The threshold in the range `[0, 1]`. When the user scrolls to this percentage of the div, the `action` will be triggered. Defaults to `1`.
    */
-  actionMargin?: string
+  threshold?: number
+
+  /**
+   * The threshold margin in CSS units. When the user scrolls within this margin from the bottom of the div, the `action` will be triggered.
+   */
+  thresholdMargin?: string
 }
 
 /**
@@ -27,10 +51,12 @@ type ScrollInfinitelyProps = React.HTMLAttributes<HTMLDivElement> & {
  *
  * @component
  * @param {Object} props - The properties that define the component.
+ * @param {React.ElementType} [props.as] - The element type to render as. Defaults to 'div'.
  * @param {() => void | Promise<void>} props.action - The action to perform when the user scrolls to the bottom of the div.
  * @param {boolean} [props.hasMore] - A boolean indicating whether there is more content to load. If `false`, the `action` will not be triggered. Defaults to `true`.
  * @param {React.ReactNode} [props.loader] - The component to render while the `action` is being performed.
- * @param {string} [props.actionMargin] - The margin from the bottom of the div at which to trigger the `action`. Defaults to '0px'.
+ * @param {number} [props.threshold] - The threshold in the range `[0, 1]`. When the user scrolls to this percentage of the div, the `action` will be triggered. Defaults to `1`.
+ * @param {string} [props.thresholdMargin] - The margin in CSS units. When the user scrolls within this margin from the bottom of the div, the `action` will be triggered.
  * @returns {React.JSX.Element} The `ScrollInfinitely` component.
  *
  * @example
@@ -43,14 +69,16 @@ type ScrollInfinitelyProps = React.HTMLAttributes<HTMLDivElement> & {
  * </ScrollInfinitely>
  * ```
  */
-const ScrollInfinitely = ({
+const ScrollInfinitely = <E extends React.ElementType = typeof defaultElement>({
+  as,
   action,
+  children,
   hasMore,
   loader,
-  actionMargin,
-  children,
+  threshold,
+  thresholdMargin,
   ...props
-}: ScrollInfinitelyProps): React.JSX.Element => {
+}: ScrollInfinitelyProps<E>): React.JSX.Element => {
   const observerRef = React.useRef<HTMLDivElement>(null)
 
   const [loading, setLoading] = React.useState(false)
@@ -71,7 +99,7 @@ const ScrollInfinitely = ({
           }
         }
       },
-      { threshold: 1, rootMargin: actionMargin }
+      { threshold: threshold ?? 1, rootMargin: thresholdMargin }
     )
 
     if (observerRef.current && hasMore !== false) {
@@ -81,16 +109,18 @@ const ScrollInfinitely = ({
     return () => {
       observer.disconnect()
     }
-  }, [action, hasMore, loading, actionMargin])
+  }, [action, hasMore, loading, threshold, thresholdMargin])
+
+  const Component = as ?? defaultElement
 
   return (
-    <div {...props}>
+    <Component {...props}>
       {children}
 
       {loading ? loader : null}
 
       <div ref={observerRef} />
-    </div>
+    </Component>
   )
 }
 
