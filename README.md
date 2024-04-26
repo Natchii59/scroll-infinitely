@@ -2,15 +2,11 @@
 <br />
 
 <p align="center">
-  <img alt="Bundle Size" src="https://badgen.net/bundlephobia/minzip/scroll-infinitely"/>
-  <a href="https://www.npmjs.com/package/scroll-infinitely">
-    <img alt="Release" src="https://badgen.net/npm/v/scroll-infinitely"/>
+  <img alt="npm bundle size" src="https://img.shields.io/bundlephobia/minzip/scroll-infinitely">
+  <img alt="NPM Downloads" src="https://img.shields.io/npm/dm/scroll-infinitely">
+  <a href="./CONTRIBUTING.md">
+    <img alt="Static Badge" src="https://img.shields.io/badge/PRs-welcome-brightgreen">
   </a>
-  <a href="https://github.com/Natchii59/scroll-infinitely/blob/master/LICENSE.md">
-    <img alt="MIT License" src="https://badgen.net/github/license/Natchii59/scroll-infinitely"/>
-  </a>
-  <img alt="NPM Downloads" src="https://badgen.net/npm/dm/scroll-infinitely"/>
-  <img alt="Github Stars" src="https://badgen.net/github/stars/Natchii59/scroll-infinitely?color=yellow" />
 </p>
 
 <br />
