@@ -1,5 +1,11 @@
 # scroll-infinitely
 
+## 0.2.1
+
+### Patch Changes
+
+- [`c94f426`](https://github.com/Natchii59/scroll-infinitely/commit/c94f426f4adf65377e2e2681a7e4b3d42f93772c) Thanks [@Natchii59](https://github.com/Natchii59)! - fix: readme badges and add package description
+
 ## 0.2.0
 
 ### Minor Changes
