@@ -1,0 +1,6 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Default",
+  "extends": "@vercel/style-guide/typescript/node20",
+  "exclude": ["node_modules"]
+}

@@ -22,12 +22,6 @@ cd scroll-infinitely
 3. Setup all the dependencies and packages by running `pnpm install`.
    This command will install dependencies.
 
-4. You can create vite react app in an `example` folder to test the library.
-
-```sh
-pnpm create vite example --template react
-```
-
 ## Development
 
 ### Tooling
@@ -40,6 +34,8 @@ pnpm create vite example --template react
 ### Commands
 
 **`pnpm build`**: build the package.
+
+**`pnpm dev`**: run the development server.
 
 **`pnpm lint`**: check for linting errors.
 

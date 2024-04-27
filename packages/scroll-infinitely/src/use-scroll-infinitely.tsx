@@ -3,7 +3,7 @@ import * as React from 'react'
 /**
  * Options for the useScrollInfinitely hook.
  */
-type ScrollInfinitelyOptions = {
+interface ScrollInfinitelyOptions {
   /**
    * The action to perform when the user scrolls to the bottom of the scrollable content.
    */
@@ -27,10 +27,8 @@ type ScrollInfinitelyOptions = {
 
 /**
  * Represents a hook for implementing infinite scrolling behavior.
- *
- * @template E - The type of the observer element.
  */
-type ScrollInfinitelyHook<E extends HTMLElement> = {
+interface ScrollInfinitelyHook<E extends HTMLElement> {
   /**
    * The reference to the observer element.
    */
@@ -45,9 +43,8 @@ type ScrollInfinitelyHook<E extends HTMLElement> = {
 /**
  * Custom React hook for implementing infinite scrolling behavior.
  *
- * @template E - The type of the HTML element to be observed.
- * @param {ScrollInfinitelyOptions} options - The options for configuring the infinite scrolling behavior.
- * @returns {ScrollInfinitelyHook<E>} An object containing the observer reference and loading state.
+ * @param options - The options for configuring the infinite scrolling behavior.
+ * @returns An object containing the observer reference and loading state.
  */
 function useScrollInfinitely<E extends HTMLElement = HTMLDivElement>(
   options: ScrollInfinitelyOptions
@@ -65,12 +62,12 @@ function useScrollInfinitely<E extends HTMLElement = HTMLDivElement>(
   const [loading, setLoading] = React.useState(false)
 
   const observerCallback = React.useCallback(
-    async (entries: IntersectionObserverEntry[]) => {
+    (entries: IntersectionObserverEntry[]) => {
       if (entries.some(entry => entry.isIntersecting)) {
         setLoading(true)
 
         const result = action()
-        Promise.resolve(result).finally(() => {
+        void Promise.resolve(result).finally(() => {
           setLoading(false)
         })
       }
@@ -80,7 +77,7 @@ function useScrollInfinitely<E extends HTMLElement = HTMLDivElement>(
 
   React.useEffect(() => {
     observer.current = new IntersectionObserver(observerCallback, {
-      threshold: threshold ?? 1,
+      threshold,
       rootMargin: thresholdMargin
     })
 
