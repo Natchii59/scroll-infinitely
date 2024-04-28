@@ -3,7 +3,12 @@ import * as React from 'react'
 /**
  * Options for the useScrollInfinitely hook.
  */
-interface ScrollInfinitelyOptions {
+interface ScrollInfinitelyOptions<E extends HTMLElement = HTMLDivElement> {
+  /**
+   * The reference to the observer element.
+   */
+  observerRef: React.RefObject<E>
+
   /**
    * The action to perform when the user scrolls to the bottom of the scrollable content.
    */
@@ -28,12 +33,7 @@ interface ScrollInfinitelyOptions {
 /**
  * Represents a hook for implementing infinite scrolling behavior.
  */
-interface ScrollInfinitelyHook<E extends HTMLElement> {
-  /**
-   * The reference to the observer element.
-   */
-  observerRef: React.RefObject<E>
-
+interface ScrollInfinitelyHook {
   /**
    * A boolean indicating whether the action is currently being performed.
    */
@@ -47,9 +47,10 @@ interface ScrollInfinitelyHook<E extends HTMLElement> {
  * @returns An object containing the observer reference and loading state.
  */
 function useScrollInfinitely<E extends HTMLElement = HTMLDivElement>(
-  options: ScrollInfinitelyOptions
-): ScrollInfinitelyHook<E> {
+  options: ScrollInfinitelyOptions<E>
+): ScrollInfinitelyHook {
   const {
+    observerRef,
     action,
     hasMore = true,
     threshold = 1,
@@ -57,7 +58,6 @@ function useScrollInfinitely<E extends HTMLElement = HTMLDivElement>(
   } = options
 
   const observer = React.useRef<IntersectionObserver | null>(null)
-  const observerRef = React.useRef<E>(null)
 
   const [loading, setLoading] = React.useState(false)
 
@@ -66,10 +66,13 @@ function useScrollInfinitely<E extends HTMLElement = HTMLDivElement>(
       if (entries.some(entry => entry.isIntersecting)) {
         setLoading(true)
 
-        const result = action()
-        void Promise.resolve(result).finally(() => {
-          setLoading(false)
-        })
+        void Promise.resolve(action())
+          .catch(() => {
+            setLoading(false)
+          })
+          .finally(() => {
+            setLoading(false)
+          })
       }
     },
     [action]
@@ -97,7 +100,6 @@ function useScrollInfinitely<E extends HTMLElement = HTMLDivElement>(
   }, [observer, observerRef, hasMore, loading])
 
   return {
-    observerRef,
     loading
   }
 }

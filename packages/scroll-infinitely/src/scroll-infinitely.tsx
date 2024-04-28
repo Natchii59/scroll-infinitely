@@ -22,7 +22,7 @@ const defaultElement = 'div'
 type ScrollInfinitelyProps<
   E extends React.ElementType = typeof defaultElement
 > = PolymorphicProps<E> &
-  ScrollInfinitelyOptions & {
+  Omit<ScrollInfinitelyOptions, 'observerRef'> & {
     /**
      * The component to render while the `action` is being performed.
      */
@@ -61,7 +61,10 @@ function ScrollInfinitely<E extends React.ElementType = typeof defaultElement>({
   end,
   ...props
 }: ScrollInfinitelyProps<E>): React.JSX.Element {
-  const { observerRef, loading } = useScrollInfinitely({
+  const observerRef = React.useRef<HTMLDivElement>(null)
+
+  const { loading } = useScrollInfinitely({
+    observerRef,
     action,
     hasMore,
     threshold,
