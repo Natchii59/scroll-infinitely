@@ -1,5 +1,11 @@
 # scroll-infinitely
 
+## 0.2.2
+
+### Patch Changes
+
+- [`e2a1b8b`](https://github.com/Natchii59/scroll-infinitely/commit/e2a1b8bbf75592f0827ea1389e74c6027c5df854) Thanks [@Natchii59](https://github.com/Natchii59)! - fix: add observerRef prop to hook
+
 ## 0.2.1
 
 ### Patch Changes
