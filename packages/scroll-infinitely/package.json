@@ -32,7 +32,8 @@
     "dev": "tsup --watch",
     "lint": "eslint . --max-warnings 0",
     "typecheck": "tsc --noEmit",
-    "test": "jest"
+    "test": "jest",
+    "coverage": "jest --coverage"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
