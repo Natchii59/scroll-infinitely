@@ -32,10 +32,12 @@
     "dev": "tsup --watch",
     "lint": "eslint . --max-warnings 0",
     "typecheck": "tsc --noEmit",
+    "test": "jest",
     "clean": "rm -rf dist"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
+    "@repo/jest-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "eslint": "^8.57.0",
     "tsup": "^8.0.2",

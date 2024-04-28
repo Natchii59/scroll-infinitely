@@ -22,5 +22,15 @@ module.exports = {
       }
     }
   },
-  ignorePatterns: ['node_modules/', 'dist/']
+  ignorePatterns: ['node_modules/', 'dist/'],
+  overrides: [
+    {
+      files: ['test/**'],
+      plugins: ['jest'],
+      extends: ['plugin:jest/recommended'],
+      rules: {
+        'import/no-extraneous-dependencies': 'off'
+      }
+    }
+  ]
 }

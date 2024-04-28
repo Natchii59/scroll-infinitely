@@ -25,5 +25,16 @@ module.exports = {
   ignorePatterns: ['node_modules/', 'dist/', '.eslintrc.js', '**/*.css'],
   rules: {
     'import/no-default-export': 'off'
-  }
+  },
+  overrides: [
+    {
+      files: ['test/**'],
+      plugins: ['jest'],
+      extends: ['plugin:jest/recommended'],
+      rules: {
+        'import/no-extraneous-dependencies': 'off',
+        'react/no-array-index-key': 'off'
+      }
+    }
+  ]
 }
