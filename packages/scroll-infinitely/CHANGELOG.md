@@ -1,5 +1,11 @@
 # scroll-infinitely
 
+## 0.2.3
+
+### Patch Changes
+
+- [`1460800`](https://github.com/Natchii59/scroll-infinitely/commit/1460800fde01d32a2ea457e8230342c48091f511) Thanks [@Natchii59](https://github.com/Natchii59)! - fix: hasMore required and clean-package
+
 ## 0.2.2
 
 ### Patch Changes
