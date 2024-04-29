@@ -95,6 +95,9 @@ importers:
       '@repo/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
+      clean-package:
+        specifier: ^2.2.0
+        version: 2.2.0
       eslint:
         specifier: ^8.57.0
         version: 8.57.0
@@ -2222,6 +2225,13 @@ packages:
         integrity: sha512-0TNiGstbQmCFwt4akjjBg5pLRTSyj/PkWQ1ZoO2zntmg9yLqSRxwEa4iCfQLGjqhiqBfOJa7W/E8wfGrTDmlZQ==
       }
 
+  clean-package@2.2.0:
+    resolution:
+      {
+        integrity: sha512-vLv8kRqvh4smPDpqAYFPLEijTppAd/cfCz4yBcUGoVl/JKu6ZWKhlo+G/cAmwlSa29RudfBeuyiNEzas8bTwEQ==
+      }
+    hasBin: true
+
   clean-regexp@1.0.0:
     resolution:
       {
@@ -2683,6 +2693,13 @@ packages:
         integrity: sha512-QM8q3zDe58hqUqjraQOmzZ1LIH9SWQJTlEKCH4kJ2oQvLZk7RbQXvtDM2XEq3fwkV9CCvvH4LA0AV+ogFsBM2Q==
       }
     engines: { node: '>=8' }
+
+  dot-prop@6.0.1:
+    resolution:
+      {
+        integrity: sha512-tE7ztYzXHIeyvc7N+hR3oi7FIbf/NIjVP9hmAt3yMXzrQ072/fpjGLx2GxNxGxUl5V73MEqYzioOMoVhGMJ5cA==
+      }
+    engines: { node: '>=10' }
 
   dotenv@16.0.3:
     resolution:
@@ -8167,6 +8184,10 @@ snapshots:
 
   cjs-module-lexer@1.2.3: {}
 
+  clean-package@2.2.0:
+    dependencies:
+      dot-prop: 6.0.1
+
   clean-regexp@1.0.0:
     dependencies:
       escape-string-regexp: 1.0.5
@@ -8409,6 +8430,10 @@ snapshots:
       webidl-conversions: 7.0.0
 
   dot-prop@5.3.0:
+    dependencies:
+      is-obj: 2.0.0
+
+  dot-prop@6.0.1:
     dependencies:
       is-obj: 2.0.0
 

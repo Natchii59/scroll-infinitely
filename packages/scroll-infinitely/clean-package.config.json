@@ -1,0 +1,3 @@
+{
+  "remove": ["devDependencies", "scripts", "clean-package"]
+}

@@ -52,7 +52,7 @@ function useScrollInfinitely<E extends HTMLElement = HTMLDivElement>(
   const {
     observerRef,
     action,
-    hasMore = true,
+    hasMore,
     threshold = 1,
     thresholdMargin = '0px'
   } = options

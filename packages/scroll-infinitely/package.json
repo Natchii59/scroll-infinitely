@@ -33,12 +33,14 @@
     "lint": "eslint . --max-warnings 0",
     "typecheck": "tsc --noEmit",
     "test": "jest",
-    "coverage": "jest --coverage"
+    "coverage": "jest --coverage",
+    "prepublish": "clean-package"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/jest-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
+    "clean-package": "^2.2.0",
     "eslint": "^8.57.0",
     "tsup": "^8.0.2",
     "typescript": "^5.4.5"
@@ -70,5 +72,6 @@
     "infinite",
     "scroll",
     "react-component"
-  ]
+  ],
+  "clean-package": "./clean-package.config.json"
 }
